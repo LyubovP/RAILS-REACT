@@ -1,2 +1,18 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    letter-spacing: 0.2px;
+    font-family: Montserrat-Regular;
+    padding: 0;
+ }
+ 
+ .content {
+   display: flex;
+   flex-flow: column nowrap;
+   align-self: center;
+   max-width: 960px;
+ }

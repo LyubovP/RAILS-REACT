@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navigation from "./Navigation";
 
 const App = () => {
   return(
-    <h1>Hello World!</h1>
+    <Router>
+      <Navigation/>
+    </Router>
   )
 }
 export default App

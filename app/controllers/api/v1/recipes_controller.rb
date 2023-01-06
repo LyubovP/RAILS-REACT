@@ -13,8 +13,12 @@ class Api::V1::RecipesController < ApplicationController
     
     end
 
+    def new
+        recipe = current_user.recipes.new
+      end
+
     def create
-        recipe = Recipe.new(recipe_params)
+        recipe = current_user.recipes.new(recipe_params)
         if recipe.save
             render json: RecipeSerializer.new(recipe).serializable_hash, status: :created
         else

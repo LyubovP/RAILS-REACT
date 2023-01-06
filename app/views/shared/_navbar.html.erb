@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark " style = "background-color: #FFA69E;">
   <div class="container">
     <%= link_to 'MyFamilyRecipes', root_path, class: "navbar-brand"%> 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,10 +10,10 @@
         <% if user_signed_in? %>
           <li class="nav-item">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">                
-                <i class="bi bi-person"></i>  
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" >                
+                <i class="bi bi-person" style = "font-size:2rem"></i>  
               </a>             
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="--bs-dropdown-link-hover-bg: #FFA69E; --bs-dropdown-border-color: #FFA69E; --bs-dropdown-divider-bg: #FFA69E; ">
                 <li>
                   <%= link_to "My settings", edit_user_registration_path, class: "dropdown-item" %>
                 </li>

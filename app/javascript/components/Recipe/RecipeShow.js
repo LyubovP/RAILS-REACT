@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components"
+import { BrowserRouter as Router, Link, useParams} from "react-router-dom";
+import axios from "axios";
 
 const Cardbody = styled.div`
 `
@@ -35,7 +37,22 @@ const Cardinst = styled.div`
 `
 
 const RecipeShow = ({recipe, setRecipe}) => {
-    
+  const params = useParams();
+
+  const handleDestroy = (id) => {
+    const url = `/api/v1/recipes/${params.id}`
+
+    const csrfToken = document.querySelector('[name=csrf-token]').content
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+
+    axios.delete(url)
+    .then( (data) => {
+      const recipe = recipe.filter(recipe => recipe.id !== id);
+      setRecipe(recipe);      
+    })
+    .catch( data => console.log('Error', data) )
+  }
+  console.log(recipe)
     return (
         <Cardbody>
         <Cardheader>
@@ -50,6 +67,9 @@ const RecipeShow = ({recipe, setRecipe}) => {
         <Cardinst>{recipe.data.attributes.instruction}</Cardinst>
         <div className="card-bootom">     
         </div>
+        <Link to="#" onClick={handleDestroy} >
+          <span className='bi bi-trash-fill' color="red" size={20}/>
+        </Link>
       </Cardbody>
     )
 }
